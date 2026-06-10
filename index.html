@@ -1,24 +1,511 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>CV Ingénieur Concepteur Développeur | Thomas LEMERCIER</title>
+    <!-- Font Awesome 6 (gratuit, icônes modernes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts : inter + espacement élégant -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: linear-gradient(145deg, #e9eef3 0%, #dce3ec 100%);
+            font-family: 'Inter', sans-serif;
+            color: #1e2a3e;
+            line-height: 1.45;
+            padding: 2rem 1.5rem;
+        }
 
-{% include career-profile.html %}
+        /* Conteneur principal type A4 premium */
+        .cv-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
 
-{% unless site.data.data.sidebar.education %}
-  {% include education.html %}
-{% endunless %}
+        /* Grille flexible : colonne gauche (about/contact/skills) / droite (expériences/formation) */
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 34% 66%;
+        }
 
-{% include experiences.html %}
+        /* ========== SIDE BAR (gauche) ========== */
+        .sidebar {
+            background: #0f2b3d;
+            color: #eef4ff;
+            padding: 2rem 1.8rem;
+            height: 100%;
+        }
 
-{% include certifications.html %}
+        .profile-pic-placeholder {
+            text-align: center;
+            margin-bottom: 1.8rem;
+        }
 
-{% include projects.html %}
+        .avatar-icon {
+            background: #2c4c6e;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.6rem;
+            color: white;
+            border: 3px solid #6c9ebf;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
 
-{% include oss-contributions.html %}
+        .sidebar h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.3rem;
+            color: white;
+        }
 
-{% include publications.html %}
+        .sidebar .title {
+            font-size: 1rem;
+            font-weight: 500;
+            background: #1e4a6e;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.3px;
+        }
 
-{% include recommendations.html %}
+        .section {
+            margin-bottom: 2rem;
+        }
 
-{% include skills.html %}
+        .section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-left: 3px solid #5fa8d3;
+            padding-left: 12px;
+            margin-bottom: 1rem;
+            color: #cae3f5;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info i {
+            width: 22px;
+            font-size: 1rem;
+            color: #7fb4d4;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 0.5rem;
+        }
+
+        .skill-badge {
+            background: #1d435e;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            color: #eef4fc;
+            transition: 0.1s;
+        }
+
+        .lang-item, .interest-item {
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 0.4rem;
+        }
+
+        .lang-name {
+            font-weight: 500;
+        }
+
+        .lang-level {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        /* ========== MAIN CONTENT (droite) ========== */
+        .main-content {
+            padding: 2rem 2rem 2rem 2rem;
+            background: white;
+        }
+
+        .main-section {
+            margin-bottom: 1.8rem;
+        }
+
+        .main-section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0f2b3d;
+            border-bottom: 3px solid #5fa8d3;
+            display: inline-block;
+            padding-bottom: 4px;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.2px;
+        }
+
+        .exp-item, .edu-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: baseline;
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1e4663;
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: #3b6e9e;
+            font-size: 0.9rem;
+        }
+
+        .exp-date {
+            font-size: 0.75rem;
+            color: #6c7a89;
+            background: #f0f4f9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+        }
+
+        .exp-desc {
+            font-size: 0.85rem;
+            color: #2c3e4e;
+            margin-top: 0.5rem;
+            padding-left: 0.3rem;
+            border-left: 2px solid #d0e2f0;
+            margin-left: 0.2rem;
+        }
+
+        .exp-desc ul {
+            margin-left: 1.2rem;
+            margin-top: 0.3rem;
+        }
+
+        .exp-desc li {
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-detail {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1e4663;
+        }
+
+        .edu-meta {
+            font-size: 0.75rem;
+            color: #5f7f9e;
+            margin-bottom: 0.25rem;
+        }
+
+        .projets-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .projet-card {
+            background: #f8fafd;
+            border-radius: 16px;
+            padding: 0.9rem;
+            flex: 1 1 200px;
+            border: 1px solid #e2edf7;
+        }
+
+        .projet-card h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #0f2b3d;
+            margin-bottom: 0.3rem;
+        }
+
+        .projet-card p {
+            font-size: 0.75rem;
+            color: #3a5a78;
+        }
+
+        hr {
+            margin: 0.5rem 0;
+            border-color: #e2edf7;
+        }
+
+        /* Responsive */
+        @media (max-width: 780px) {
+            .cv-grid {
+                grid-template-columns: 1fr;
+            }
+            body {
+                padding: 1rem;
+            }
+            .sidebar {
+                text-align: center;
+            }
+            .contact-info p {
+                justify-content: center;
+            }
+            .section h3 {
+                text-align: left;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .sidebar {
+                background: #0f2b3d !important;
+                color: black;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .skill-badge {
+                background: #1d435e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .avatar-icon {
+                background: #2c4c6e !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="cv-container">
+    <div class="cv-grid">
+        <!-- PARTIE GAUCHE : profil, contact, compétences, langues -->
+        <div class="sidebar">
+            <div class="profile-pic-placeholder">
+                <div class="avatar-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h1>Thomas LEMERCIER</h1>
+                <div class="title">Ingénieur Concepteur Développeur</div>
+            </div>
+
+            <div class="section">
+                <h3><i class="fas fa-address-card" style="margin-right: 8px;"></i> Profil</h3>
+                <p style="font-size: 0.85rem; line-height: 1.4;">Ingénieur généraliste passionné par l'architecture logicielle et le développement fullstack. 6 ans d'expérience en conception de solutions robustes, stack Java/Angular & Cloud. Force de proposition et veille technologique constante.</p>
+            </div>
+
+            <div class="section">
+                <h3><i class="fas fa-phone-alt"></i> Contact</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +33 6 12 34 56 78</p>
+                    <p><i class="fas fa-envelope"></i> thomas.lemercier@ingenieur.fr</p>
+                    <p><i class="fab fa-linkedin"></i> linkedin.com/in/thomas-lem</p>
+                    <p><i class="fab fa-github"></i> github.com/tlemercier</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lyon, France</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3><i class="fas fa-microchip"></i> Compétences techniques</h3>
+                <div class="skills-list">
+                    <span class="skill-badge">Java 17/21</span>
+                    <span class="skill-badge">Spring Boot</span>
+                    <span class="skill-badge">Angular 16+</span>
+                    <span class="skill-badge">TypeScript</span>
+                    <span class="skill-badge">Node.js</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">PostgreSQL / MongoDB</span>
+                    <span class="skill-badge">Docker / K8s</span>
+                    <span class="skill-badge">Git / CI/CD</span>
+                    <span class="skill-badge">AWS (EC2, S3, RDS)</span>
+                    <span class="skill-badge">REST / GraphQL</span>
+                    <span class="skill-badge">Design Patterns / DDD</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3><i class="fas fa-language"></i> Langues</h3>
+                <div class="lang-item">
+                    <span class="lang-name">Français</span>
+                    <span class="lang-level">Natif</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-name">Anglais</span>
+                    <span class="lang-level">C1 (TOEIC 945)</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-name">Espagnol</span>
+                    <span class="lang-level">Intermédiaire B1</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3><i class="fas fa-heart"></i> Centres d'intérêt</h3>
+                <div class="interest-item">🚀 Tech & open source</div>
+                <div class="interest-item">♟️ Échecs (classement Elo 1700)</div>
+                <div class="interest-item">🏔️ Randonnée / escalade</div>
+                <div class="interest-item">📚 Romans de science-fiction</div>
+            </div>
+        </div>
+
+        <!-- PARTIE DROITE : expériences, formation, projets -->
+        <div class="main-content">
+            <!-- EXPÉRIENCES PROFESSIONNELLES -->
+            <div class="main-section">
+                <h2><i class="fas fa-briefcase" style="margin-right: 10px;"></i> Expériences</h2>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-title">Ingénieur Concepteur Développeur</span> 
+                            <span class="exp-company"> @ TechForward Solutions, Lyon</span>
+                        </div>
+                        <div class="exp-date">2022 – Aujourd'hui</div>
+                    </div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Conception et développement d’une plateforme SaaS de gestion logistique (microservices Spring Boot / Angular).</li>
+                            <li>Mise en place d’une architecture événementielle avec Kafka et déploiement sur cluster Kubernetes.</li>
+                            <li>Réduction de 25% du temps de réponse API via implémentation de cache Redis & optimisation SQL.</li>
+                            <li>Encadrement technique de 2 développeurs juniors, revues de code et ateliers d'architecture.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-title">Développeur Fullstack</span> 
+                            <span class="exp-company"> @ Digital Core, Paris</span>
+                        </div>
+                        <div class="exp-date">2019 – 2022</div>
+                    </div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Participation à la refonte d’un CRM interne : migration d’une stack legacy vers Spring Boot + React.</li>
+                            <li>Implémentation de l’authentification OAuth2 et des API REST sécurisées.</li>
+                            <li>Réalisation de tests unitaires et d’intégration (JUnit, Mockito, Cypress).</li>
+                            <li>Collaboration étroite avec les équipes produit pour définir les user stories techniques.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-title">Stage concepteur logiciel</span> 
+                            <span class="exp-company"> @ SmartData Solutions, Nantes</span>
+                        </div>
+                        <div class="exp-date">2018 – 2019 (6 mois)</div>
+                    </div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Développement d’un outil ETL pour l’agrégation de données clients (Python, Pandas).</li>
+                            <li>Modélisation UML et rédaction de la documentation technique.</li>
+                            <li>Mise en place d’un tableau de bord de monitoring avec Grafana.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMATION -->
+            <div class="main-section">
+                <h2><i class="fas fa-graduation-cap"></i> Formation & Certifications</h2>
+                <div class="edu-item">
+                    <div class="edu-detail">Diplôme d'Ingénieur - spécialité Systèmes d'Information</div>
+                    <div class="edu-meta">INSA Lyon | 2016 – 2019 (Mention très bien)</div>
+                    <div class="exp-desc" style="margin-top: 6px;">Cours avancés : architecture logicielle, cloud computing, bases de données distribuées. Projet de fin d'études sur la détection d'anomalies par IA.</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-detail">Certification AWS Solutions Architect Associate</div>
+                    <div class="edu-meta">Amazon Web Services | 2023</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-detail">Certification Professional Scrum Master I (PSM I)</div>
+                    <div class="edu-meta">Scrum.org | 2022</div>
+                </div>
+            </div>
+
+            <!-- PROJETS PERSONNELS ET OPENSOURCE -->
+            <div class="main-section">
+                <h2><i class="fas fa-laptop-code"></i> Projets marquants</h2>
+                <div class="projets-grid">
+                    <div class="projet-card">
+                        <h4>TaskFlow <i class="fab fa-github" style="float: right;"></i></h4>
+                        <p>Application de gestion de tâches collaboratives en temps réel (WebSocket, Spring, Angular Material). Déployée avec Docker Compose.</p>
+                    </div>
+                    <div class="projet-card">
+                        <h4>API Rate Limiter</h4>
+                        <p>Librairie Java implémentant un algorithme de “token bucket” pour protéger les API. Open source et utilisé par 15 projets internes.</p>
+                    </div>
+                    <div class="projet-card">
+                        <h4>Portfolio & Blog tech</h4>
+                        <p>Site personnel avec architecture JAMstack (Hugo + Netlify). Articles sur les design patterns et retours d’expérience cloud.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOFT SKILLS + mentions supplémentaires -->
+            <div class="main-section">
+                <h2><i class="fas fa-users"></i> Soft skills & méthodes</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px;">
+                    <span class="skill-badge" style="background:#eef2f6; color:#1f4a6e;">Communication technique</span>
+                    <span class="skill-badge" style="background:#eef2f6; color:#1f4a6e;">Agile / Scrum</span>
+                    <span class="skill-badge" style="background:#eef2f6; color:#1f4a6e;">Mentorat</span>
+                    <span class="skill-badge" style="background:#eef2f6; color:#1f4a6e;">Résolution de problèmes</span>
+                    <span class="skill-badge" style="background:#eef2f6; color:#1f4a6e;">Esprit d'équipe</span>
+                    <span class="skill-badge" style="background:#eef2f6; color:#1f4a6e;">Gestion de projet technique</span>
+                </div>
+                <hr>
+                <div style="font-size: 0.75rem; color: #5f7f9e; margin-top: 0.8rem; text-align: center;">
+                    <i class="fas fa-sync-alt"></i> Disponible pour mission freelance ou CDI – Permis B
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- petite note discrète de référence -->
+<div style="text-align: center; margin-top: 1rem; font-size: 0.7rem; color: #5c6f87;">CV généré HTML/CSS – Ingénieur Concepteur Développeur – mis à jour 2025</div>
+</body>
+</html>
