@@ -205,6 +205,15 @@
             border-radius: 20px;
         }
 
+        .exp-intro {
+            font-size: 0.85rem;
+            color: #2c3e4e;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
         .exp-desc {
             font-size: 0.85rem;
             color: #2c3e4e;
@@ -302,7 +311,7 @@
 <body>
 <div class="cv-container">
     <div class="cv-grid">
-        <!-- PARTIE GAUCHE : profil, contact, compétences -->
+
         <div class="sidebar">
             <div class="profile-pic-placeholder">
                 <div class="avatar-icon">
@@ -315,8 +324,8 @@
             <div class="section">
                 <h3><i class="fas fa-address-card" style="margin-right: 8px;"></i> Profil</h3>
                 <p style="font-size: 0.85rem; line-height: 1.4;">
-			15 ans d'expérience en conception logicielle, architectures J2EE / Spring et méthodes agiles.
-		</p>
+                    15 ans d'expérience en conception logicielle, J2EE, Spring, Framework UI et méthodes agiles.
+                </p>
             </div>
 
             <div class="section">
@@ -329,7 +338,7 @@
             </div>
 
             <div class="section">
-                <h3><i class="fas fa-microchip"></i> Compétences techniques</h3>
+                <h3><i class="fas fa-microchip"></i> Compétences</h3>
                 <div class="skills-list">
                     <span class="skill-badge">Java / J2EE</span>
                     <span class="skill-badge">Angular / ReactJS</span>
@@ -345,13 +354,12 @@
             <div class="section">
                 <h3><i class="fas fa-heart"></i> Centres d'intérêt</h3>
                 <div class="interest-item">🎲 Jeux de société</div>
-                <div class="interest-item">🥾 Randonné bivouac</div>
+                <div class="interest-item">🥾 Randonnée bivouac</div>
             </div>
         </div>
 
-        <!-- PARTIE DROITE : expériences, formation -->
         <div class="main-content">
-            <!-- EXPÉRIENCES PROFESSIONNELLES (issues du PDF) -->
+
             <div class="main-section">
                 <h2><i class="fas fa-briefcase" style="margin-right: 10px;"></i> Expériences</h2>
 
@@ -363,13 +371,14 @@
                         </div>
                         <div class="exp-date">Mars 2017 – En cours</div>
                     </div>
+                    <div class="exp-intro">J'intègre l'éditeur Decalog pour participer au développement de Flora, solution intégrant référentiel documentaire et gestion bibliothéconomie.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Participation au développement de Flora, solution intégrant référentiel documentaire et gestion bibliothéconomie.</li>
+                            <li>Développement de nouvelle fonctionnalité Musee & Bibliothèque, solution intégrant référentiel documentaire et gestion bibliothéconomie.</li>
                             <li>Mise en œuvre d'une stack moderne : Java, Javascript, Typescript, Angular, ReactJS.</li>
                         </ul>
                     </div>
-                    <div class="tech-stack"><i class="fas fa-code"></i> Angular, ReactJS, Typescript, Java</div>
+                    <div class="tech-stack">Angular, ReactJS, Typescript, Java</div>
                 </div>
 
                 <div class="exp-item">
@@ -380,11 +389,12 @@
                         </div>
                         <div class="exp-date">Avril 2016 – Mars 2017</div>
                     </div>
+                    <div class="exp-intro">A la suite d'un court transfert de compétence, je remplace l'expert technique qui était responsable depuis 5 ans, des évolutions d'une lourde application, fruit de 20 ans de développement. La difficulté semble tenir dans la compréhension de cette lourde base données qui en 2 décennies, c'est vue très largement dénormalisée.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Remplacement de l'expert technique après transfert de compétence, reprise d'une application legacy de 20 ans.</li>
-                            <li>Prise part à la réalisation d'un nouveau module Java en mode agile.</li>
-                            <li>Prise en charge complète des évolutions et maintenances de l'application de gestion logistique.</li>
+                            <li>Prise part à la réalisation du nouveau module java, suivant un mode nouvellement agile.</li>
+                            <li>Suivi d'1 mois de Transfert de compétence sur l'existant (java, procédures stockés, batch unix)</li>
+                            <li>Prise en charge complète des évolutions et maintenances de l'application de gestion de la logistique.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">Java, JSF, Primefaces, Maven, Jenkins, Spring, Hibernate, iBatis, Jasper Report, POI, Sybase</div>
@@ -398,11 +408,13 @@
                         </div>
                         <div class="exp-date">Mars 2014 – Mars 2016</div>
                     </div>
+                    <div class="exp-intro">L'opportunité m'est offerte de participer à la création du nouveau site internet du 5ème groupes français de protection sociale. Heureux de repartir en mode "agile", après une rapide montée en compétence sur Git et Liferay, je prend en charge la conduite des développements du module de tarification.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Création du nouveau site internet du 5ème groupe français de protection sociale.</li>
-                            <li>Conception et développement en mode SCRUM d'un tarificateur destiné aux courtiers Apicil.</li>
-                            <li>Mise en place des appels et expositions WS pour contractualisation, workflow de validation des demandes de remise.</li>
+                            <li>Mise en place d'une version 1.0 à l'issue d'un forfait de 2 mois.</li>
+                            <li>Conception et développement en mode SCRUM, d'un tarificateur destiné aux courtiers Apicil.</li>
+                            <li>Mise en place des appels et expositions WS pour contractualisation des offres.</li>
+                            <li>Conception d'un workflow pour validation de demandes de remise.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">Java, JSF, Primefaces, Git, JQuery, Liferay, JAX-WS, Apache CXF, Maven</div>
@@ -416,11 +428,12 @@
                         </div>
                         <div class="exp-date">Janv. 2012 – Fév. 2014</div>
                     </div>
+                    <div class="exp-intro">J'intègre le centre de service SQLI dédié à l'assureur et prend en charge les évolutions de leur plateforme de souscription: Déployée sur Web Sphere Portal, à travers 7 couches applicatives, "Smart" assure un accès mutualisé à différents progiciels via Web Services. Projet après projet, entouré de plus d'une 20ène de collaborateurs et amis, dans une ambiance "Start-up", nous gagnons peu à peu l'entière confiance de notre client.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Évolutions de la plateforme de souscription déployée sur WebSphere Portal (7 couches applicatives).</li>
-                            <li>Développement Serveur & Client Web Service, conception de l'IHM des nouveaux produits d'assurance "PRO" et "AGRI".</li>
-                            <li>Encadrement technique et gestion de projet dans une ambiance start-up.</li>
+                            <li>Développement Serveur & Client Web Service.</li>
+                            <li>Conception de l'IHM des nouveaux produits d'assurance "PRO" et "AGRI".</li>
+                            <li>Encadrement technique et gestion de projet.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">Java, JSP, Ajax/Dojo 1.6, WebSphere, JAX-RPC/JAX-WS, Maven</div>
@@ -434,10 +447,12 @@
                         </div>
                         <div class="exp-date">Janv. 2011 – Déc. 2011</div>
                     </div>
+                    <div class="exp-intro">Je rejoins la branche Alcyonix M.C.O. du groupe pour intervenir sur une application intranet de la marine nationale et assurer la Maintenance en Condition Opérationnelle des bâtiments navals. L'application J2EE est utilisée en sur-couche de Maximo (Outil de M.C.O.) et Staffware (Gestion de Workflow).</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Application intranet pour la Maintenance en Condition Opérationnelle des bâtiments navals (sur-couche Maximo / Staffware).</li>
-                            <li>Conception du module générique d'import des fichiers, prise en charge des anomalies TMA.</li>
+                            <li>Conception et réalisation du module générique d'import des fichiers.</li>
+                            <li>Réalisation des évolutions.</li>
+                            <li>Prise en charge des anomalies pour le compte de la TMA.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">Java, JSP, Oracle, Maximo, StaffWare, Maven</div>
@@ -451,10 +466,11 @@
                         </div>
                         <div class="exp-date">Nov. 2010 – Déc. 2010</div>
                     </div>
+                    <div class="exp-intro">Développement d'une RIA et gestion des ressources bibliothécaires. L'expérience est courte mais la découverte de GWT est très enrichissante.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Développement d'une RIA et gestion des ressources bibliothécaires, découverte de GWT.</li>
-                            <li>Résolution des anomalies liées au rendu graphique.</li>
+                            <li>Montée en compétence sur les technologies GWT (mode "hosted").</li>
+                            <li>Résolution des anomalies liées au rendu graphique de l'application.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">GWT 2.0, Spring, Hibernate, JUnit</div>
@@ -468,10 +484,12 @@
                         </div>
                         <div class="exp-date">Juil. 2010 – Nov. 2010</div>
                     </div>
+                    <div class="exp-intro">Je suis rappelé chez Sicap et ravi d'assurer, seul, la rédaction (en anglais) des spécifications, la conception et la réalisation des nouvelles fonctionnalités de « Rating & Charging for Multimedia Mobile Gateway ».</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Rédaction en anglais des spécifications, conception et développement du module "Rating & Charging" pour Orange Cameroun.</li>
-                            <li>Chiffrage, gestion avancement selon méthodes Agiles et TDD.</li>
+                            <li>Spécification, conception et développement du module de « Rating & Charging » en réponse à une demande d'Orange Cameroun.</li>
+                            <li>Rédaction en anglais des exigences fonctionnelles et spécifications techniques détaillées du module Facturation des SMS entrants.</li>
+                            <li>Chiffrage, gestion de l'avancement, conception et réalisation selon les méthodes « Agiles » et « Test Driven development ».</li>
                         </ul>
                     </div>
                     <div class="tech-stack">J2EE, JUnit, Resin, Jira</div>
@@ -485,10 +503,13 @@
                         </div>
                         <div class="exp-date">Janv. 2010 – Juin 2010</div>
                     </div>
+                    <div class="exp-intro">En réponse à une demande du CERTU (Ministère de l'écologie), SQLI me propose d'expérimenter les préceptes du Test Driven Devlopment pour réaliser EMD: Une application "stand alone" permettant la génération de plaquettes (PDF, HTML et Open Office) présentant des résultats d'enquêtes. Le projet se révèle semé d'embuches mais nous parvenons a les relever un a un.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Réalisation d'une application standalone pour génération de plaquettes (PDF, HTML, Open Office) avec TDD.</li>
-                            <li>Adaptation des librairies GeoTools, JFreeChart et Jasper Report.</li>
+                            <li>Mise en place des outils permettant un développement dirigé par les tests (Junit, Mock, Mantis, Cmmi).</li>
+                            <li>Mise en place de l'architecture des services (métier & persistance) et gestion des exceptions.</li>
+                            <li>Conception & Développement du système d'import des fichiers destinés à la génération des cartes et graphiques.</li>
+                            <li>Adaptation des librairies GeoTools (représentation spatiale), JFreeChart (histogrammes), et Jasper-Report (Edition).</li>
                         </ul>
                     </div>
                     <div class="tech-stack">J2EE, JUnit, Spring, Jasper-Report, GeoTools, JFreeChart, Swing, Maven</div>
@@ -502,11 +523,14 @@
                         </div>
                         <div class="exp-date">Janv. 2008 – Déc. 2009</div>
                     </div>
+                    <div class="exp-intro">J'intègre une petite entreprise dynamique, aux dimensions internationales et centrée sur les NTIC. Au sein d'une équipe jeune, je participe "Agilement" aux évolutions de la "Multimedia Mobile Gateway": Passerelle SMS reliant les fournisseurs aux opérateurs téléphoniques. Mon expérience et mon implication me permettent de tisser des liens fort avec le client.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Participation Agile aux évolutions de la "Multimedia Mobile Gateway" (passerelle SMS).</li>
-                            <li>Spécification en anglais de l'anti-spam, rating & charging, développement de connecteurs (UCP, SMPP, HTTP, SOAP, MM7...).</li>
-                            <li>Support client international (Orange, SFR, Bouygues, T-Mobile, Wataniya...).</li>
+                            <li>Prise en main des différents « frameworks » Sicap (équivalent Maven, Spring, Hibernate ou Struts) et appréhension d'un environnement technique riche orienté multiplateforme et multithread.</li>
+                            <li>Mise en œuvre de la méthodologie SCRUM au sein d'une équipe constituée de 1 product owner, 1 scrum master et 5 développeurs.</li>
+                            <li>Spécification (en anglais) et développement de nouvelles fonctionnalités de la « Gateway » tel que l'Anti-spam ou le rating & charging.</li>
+                            <li>Développement de connecteurs permettant la communication via les protocoles UCP, SMPP, HTTP, SOAP, SMTP, MM7, …</li>
+                            <li>Au sein du support, résolution (en anglais) des incidents liés aux produits MMG pour des clients tels que Orange, SFR, Bouygue, UTEL, NRJ Mobile, Telecable, TMobile, Wataniya, Ocito, OPT, GDAI.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">J2EE, JUnit, SOAP, Oracle, Resin, Jira</div>
@@ -520,10 +544,14 @@
                         </div>
                         <div class="exp-date">Août 2007 – Janv. 2008</div>
                     </div>
+                    <div class="exp-intro">Conception et développement d'une nouvelle application intranet de gestion d'archivages physiques: Au sein d'une petite équipe je prend naturellement la responsabilité du leader technique.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Leader technique : architecture 5 couches (Spring, Hibernate, Struts), tests unitaires et fonctionnels (Selenium).</li>
-                            <li>Développement des modules de versements, communications, transferts et destructions.</li>
+                            <li>Développement de la maquette (HTML / JavaScript).</li>
+                            <li>Mise en place, avec l'aide d'un architecte, d'une architecture 5 couches (Spring, Hibernate, Struts).</li>
+                            <li>Développement des tests unitaires (JUnit & DBUnit) et fonctionnels automatisés (Selenium).</li>
+                            <li>Développement des modules de: versements, communications, transferts et destructions.</li>
+                            <li>Intégration du module Flash de représentation des archives dans l'espace.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">J2EE, JSP, Ajax, Struts, JUnit, DBUnit, Hibernate, Spring, Tomcat, Selenium, Maven</div>
@@ -537,10 +565,12 @@
                         </div>
                         <div class="exp-date">Janv. 2007 – Juil. 2007</div>
                     </div>
+                    <div class="exp-intro">J'intègre l'un des centre informatique de la Caisse d'Epargne pour porter les évolutions du « poste de travail ». Les missions s'avèrent nombreuses et variées.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Intégration du logiciel de recouvrement VARIO, développement ASP.NET/C# d'un outil d'administration des traces.</li>
-                            <li>Maintenance et évolutions via technologies propriétaires.</li>
+                            <li>Intégration du logiciel de recouvrement VARIO (client lourd) sur le poste de travail (client léger) : Création des DLL via NS-DK.</li>
+                            <li>Développement en ASP.NET/C# d'un outil d'administration des traces pour le projet NEO (Gestion de crédits).</li>
+                            <li>Prise en charge des évolutions et maintenances pour le poste de travail via des technologies propriétaires.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">ASP.NET, C#, NatStar NSDK, CM-Synergy</div>
@@ -554,10 +584,13 @@
                         </div>
                         <div class="exp-date">Janv. 2006 – Janv. 2007</div>
                     </div>
+                    <div class="exp-intro">Première mission pour le compte d'SQLI, j'intègre un éditeur du groupe, pour rejoindre une équipe restreinte et développer sous Jboss/EJB3 une application Santé traitant de prescriptions de produits sanguins labiles.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Développement sous Jboss/EJB3 d'une application de prescription de produits sanguins labiles.</li>
-                            <li>Développement du socle infirmier : planning/gestionnaire d'exécution de soins.</li>
+                            <li>Intégration d'un Framework IHM propriétaire basé sur MVC.</li>
+                            <li>Développement du module de prescription de PSL (Produit Sanguin Labile).</li>
+                            <li>Développement du socle infirmier : planning/gestionnaire d'exécution de soins issue des prescriptions.</li>
+                            <li>Développement des tests unitaire (JUnit).</li>
                         </ul>
                     </div>
                     <div class="tech-stack">J2EE, JSP, EJB3, JBoss, JUnit, Eclipse, Oracle9</div>
@@ -571,10 +604,10 @@
                         </div>
                         <div class="exp-date">Janv. 2004 – Janv. 2005</div>
                     </div>
+                    <div class="exp-intro">Développement (4 pers.) d'un ERP sous interface Web (ASP/IIS/Delphi/SQL Server) : Gestion commerciale; gestion des stocks; Comptabilité; gestion de planning; CRM; GED.</div>
                     <div class="exp-desc">
                         <ul>
-                            <li>Développement d'un ERP sous interface Web (ASP/Delphi/SQL Server) : gestion commerciale, stocks, comptabilité, CRM, GED.</li>
-                            <li>Mise en place de cycles agiles courts (3-4 jours).</li>
+                            <li>Mise en place des préceptes agiles: Développement, test, validation et livraison sur des cycles cours de 3 à 4.</li>
                         </ul>
                     </div>
                     <div class="tech-stack">ASP, Delphi, IIS, SQL Server, Java, Tomcat, PostgreSQL, CVS, XML, DHTML, JasperReport</div>
@@ -588,10 +621,9 @@
                         </div>
                         <div class="exp-date">Mars 2002 – Nov. 2003</div>
                     </div>
+                    <div class="exp-intro">Développement (PHP), selon un cycle en V, d'une application intranet d'aide au contrôle de gestion.</div>
                     <div class="exp-desc">
-                        <ul>
-                            <li>Développement PHP d'une application intranet d'aide au contrôle de gestion (cycle en V).</li>
-                        </ul>
+                        <ul></ul>
                     </div>
                     <div class="tech-stack">UNIX SCO, PHP4, JavaScript, Apache, Informix, CVS, PowerAMC, XML, ESQLC</div>
                 </div>
@@ -604,16 +636,14 @@
                         </div>
                         <div class="exp-date">Sept. 2000 – Déc. 2001</div>
                     </div>
+                    <div class="exp-intro">Développement (ASP) d'un assistant à la création de devis financiers. Développement (C++) d'un outil de gestion RH.</div>
                     <div class="exp-desc">
-                        <ul>
-                            <li>Assistant à la création de devis financiers (ASP) et outil de gestion RH (C++).</li>
-                        </ul>
+                        <ul></ul>
                     </div>
                     <div class="tech-stack">C++, SQL Server, ASP, JavaScript, VBScript, IIS</div>
                 </div>
             </div>
 
-            <!-- FORMATION (exacte du PDF) -->
             <div class="main-section">
                 <h2><i class="fas fa-graduation-cap"></i> Formation</h2>
                 <div class="edu-item">
@@ -634,7 +664,6 @@
                 </div>
             </div>
 
-            <!-- MÉTHODOLOGIES & OUTILS complémentaires -->
             <div class="main-section">
                 <h2><i class="fas fa-cogs"></i> Environnements & Méthodes</h2>
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px;">
